@@ -2,4 +2,14 @@ CREATE DATABASE IF NOT EXISTS dentist_api;
 
 USE dentist_api;
 
+CREATE TABLE IF NOT EXISTS  clients
+(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL,
+	treatment VARCHAR(100) NOT NULL,
+	date VARCHAR(100) NOT NULL,
+	value INT,
+	portion INT,
+	PRIMARY KEY(id)
+);
 
