@@ -13,7 +13,10 @@ export default function List(props) {
   const sumValues = () => {
     const values = [];
     props.list.forEach((e) => values.push(e.value));
-    const sum = values.reduce((prev, current) => prev + current, 0);
+    const sum = values.reduce(
+      (prev, current) => Number(prev) + Number(current),
+      0,
+    );
     return sum;
   };
 
@@ -54,11 +57,13 @@ export default function List(props) {
         </table>
       )}
 
-      <div className="values-container">
-        <p>
-          Faturamento total: <span>R$ {sumValues()}</span>
-        </p>
-      </div>
+      {props.list !== null && (
+        <div className="values-container">
+          <p>
+            Faturamento total: <span>R$ {sumValues()}</span>
+          </p>
+        </div>
+      )}
     </div>
   );
 }

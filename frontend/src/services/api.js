@@ -12,3 +12,12 @@ export const getList = async () => {
     console.error(e);
   }
 };
+
+export const createItem = async (item) => {
+  try {
+    const { data } = await api.post("/", item);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+};
