@@ -1,0 +1,28 @@
+.header {
+  background-color: #05585c;
+  color: white;
+  padding: 2rem;
+}
+
+.header-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1.25rem;
+  }
+  .header-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .header {
+    padding: 1rem;
+  }
+  .header-title {
+    font-size: 1rem;
+  }
+}

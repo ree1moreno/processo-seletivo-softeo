@@ -1,0 +1,33 @@
+.footer {
+  background-color: #05585c;
+  color: white;
+  padding: 2rem;
+}
+
+.footer-nav {
+  align-items: center;
+  display: flex;
+  font-size: 1.25rem;
+  gap: 1.125rem;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.25rem;
+  }
+  .footer-nav {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer {
+    padding: 1rem;
+  }
+  .footer-nav {
+    flex-wrap: wrap;
+    font-size: 0.825rem;
+  }
+}
