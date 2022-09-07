@@ -13,7 +13,7 @@ export default function List(props) {
       <h2>Lista de tratamentos</h2>
 
       {!props.list.length ? (
-        <p>Ainda não tem tratamentos cadastrados</p>
+        <p className="list-message">Ainda não tem tratamentos cadastrados</p>
       ) : (
         <table className="table-list">
           <thead>

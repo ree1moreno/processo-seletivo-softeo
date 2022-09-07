@@ -21,6 +21,10 @@
   text-align: center;
 }
 
+.list-message {
+  text-align: center;
+}
+
 @media (max-width: 450px) {
   .list-container h2 {
     font-size: 1.25rem;
