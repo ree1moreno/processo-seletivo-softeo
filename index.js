@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 
 const clientRouter = require("./backend/src/routes/index");
+const { errorMiddleware } = require("./backend/src/middlewares");
 
 dotenv.config();
 
@@ -13,6 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/", clientRouter);
+
+app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3001;
 

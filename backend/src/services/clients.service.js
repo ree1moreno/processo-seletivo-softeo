@@ -6,6 +6,11 @@ const listAll = async () => {
   return clientsList;
 };
 
+const createItem = async ({ name, treatment, date, value, portion }) => {
+  return await clientsModel.createItem(name, treatment, date, value, portion);
+};
+
 module.exports = {
   listAll,
+  createItem,
 };
