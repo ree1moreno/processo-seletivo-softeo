@@ -29,6 +29,19 @@
   text-align: center;
 }
 
+.values-container {
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.values-container span {
+  color: #08979d;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 @media (max-width: 450px) {
   .list-container h2 {
     font-size: 1.25rem;
@@ -49,5 +62,10 @@
 
   .table-list {
     font-size: 0.6rem;
+  }
+
+  .values-container,
+  .values-container span {
+    font-size: 0.7rem;
   }
 }

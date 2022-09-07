@@ -10,6 +10,13 @@ export default function List(props) {
     return objDate;
   };
 
+  const sumValues = () => {
+    const values = [];
+    props.list.forEach((e) => values.push(e.value));
+    const sum = values.reduce((prev, current) => prev + current, 0);
+    return sum;
+  };
+
   return (
     <div className="list-container">
       <h2>Lista de tratamentos</h2>
@@ -46,6 +53,12 @@ export default function List(props) {
           </tbody>
         </table>
       )}
+
+      <div className="values-container">
+        <p>
+          Faturamento total: <span>R$ {sumValues()}</span>
+        </p>
+      </div>
     </div>
   );
 }

@@ -65,7 +65,7 @@ export default function Form(props) {
 
       <label htmlFor="value">Valor (R$)</label>
       <input
-        type="text"
+        type="number"
         id="value"
         name="value"
         required
