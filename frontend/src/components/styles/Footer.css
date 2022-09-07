@@ -13,6 +13,14 @@
   text-align: center;
 }
 
+footer a:visited {
+  color: white;
+}
+
+footer a:hover {
+  color: #8474a1;
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 1.25rem;

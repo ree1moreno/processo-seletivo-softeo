@@ -21,6 +21,10 @@
   text-align: center;
 }
 
+.edit-button {
+  line-height: 50%;
+}
+
 .list-message {
   text-align: center;
 }

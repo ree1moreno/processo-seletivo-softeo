@@ -1,3 +1,5 @@
+import { BiEdit } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import "./styles/List.css";
 
 export default function List(props) {
@@ -12,8 +14,8 @@ export default function List(props) {
     <div className="list-container">
       <h2>Lista de tratamentos</h2>
 
-      {!props.list.length ? (
-        <p className="list-message">Ainda não tem tratamentos cadastrados</p>
+      {props.list == null ? (
+        <p className="list-message">Ainda não tem tratamentos registrados</p>
       ) : (
         <table className="table-list">
           <thead>
@@ -23,6 +25,7 @@ export default function List(props) {
               <th>Data</th>
               <th>Valor</th>
               <th>Parcelas</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -33,6 +36,11 @@ export default function List(props) {
                 <td>{formatDate(item.date)}</td>
                 <td>{`R$ ${item.value}`}</td>
                 <td>{`${item.portion} parcela(s)`}</td>
+                <td className="edit-button">
+                  <Link to="#">
+                    <BiEdit />
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>

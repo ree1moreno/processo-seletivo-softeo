@@ -11,16 +11,3 @@ body {
 li {
   list-style-type: none;
 }
-
-a {
-  font-weight: 700;
-  text-decoration: none;
-}
-
-a:visited {
-  color: white;
-}
-
-a:hover {
-  color: #8474a1;
-}
