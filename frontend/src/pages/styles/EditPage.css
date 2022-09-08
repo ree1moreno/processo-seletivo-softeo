@@ -1,0 +1,22 @@
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.cancel-button,
+.delete-button {
+  font-size: 1.5rem;
+}
+
+.delete-button {
+  color: #8474a1;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}

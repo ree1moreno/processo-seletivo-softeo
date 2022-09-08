@@ -37,6 +37,7 @@ export default function Form() {
     event.preventDefault();
     await createItem(info);
     addItem(info);
+    // window.location.reload(false);
     setInfo(initialState);
   };
 

@@ -37,8 +37,17 @@ const listById = async (id) => {
   return result[0];
 };
 
+const deleteById = async (id) => {
+  const SQL = "DELETE FROM clients WHERE id = ?;";
+  const [result] = await connection.execute(SQL, [id]);
+
+  if (!result.affectedRows) return [];
+  return true;
+};
+
 module.exports = {
   listAll,
   createItem,
   listById,
+  deleteById,
 };

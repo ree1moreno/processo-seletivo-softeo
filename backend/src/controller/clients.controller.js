@@ -22,8 +22,17 @@ const listById = async (req, res) => {
   return res.status(200).json(client);
 };
 
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  const client = await clientsService.deleteById(id);
+
+  if (!client) return res.status(404).json({ message: "Item not found." });
+  return res.status(204).end();
+};
+
 module.exports = {
   listAll,
   createItem,
   listById,
+  deleteById,
 };

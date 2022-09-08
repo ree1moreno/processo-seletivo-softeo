@@ -15,8 +15,15 @@ const listById = async (id) => {
   return client;
 };
 
+const deleteById = async (id) => {
+  const client = await clientsModel.deleteById(id);
+  if (client.length === 0) return null;
+  return client;
+};
+
 module.exports = {
   listAll,
   createItem,
   listById,
+  deleteById,
 };

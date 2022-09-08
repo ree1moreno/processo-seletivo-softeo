@@ -21,3 +21,21 @@ export const createItem = async (item) => {
     console.error(e);
   }
 };
+
+export const getItemById = async (id) => {
+  try {
+    const { data } = await api.get(`/${id}`);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const deleteItem = async (id) => {
+  try {
+    const { data } = await api.delete(`/${id}`);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+};

@@ -51,7 +51,7 @@ export default function List() {
                 <td>{`R$ ${item.value}`}</td>
                 <td>{`${item.portion} parcela(s)`}</td>
                 <td className="edit-button">
-                  <Link to="#">
+                  <Link to={`/${item.id}`}>
                     <BiEdit />
                   </Link>
                 </td>
