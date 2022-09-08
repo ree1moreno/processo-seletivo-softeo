@@ -21,9 +21,17 @@ const deleteById = async (id) => {
   return client;
 };
 
+const update = async (item) => {
+  const client = await clientsModel.update(item);
+  if (client.length === 0) return null;
+
+  return client;
+};
+
 module.exports = {
   listAll,
   createItem,
   listById,
   deleteById,
+  update,
 };
