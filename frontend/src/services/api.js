@@ -39,3 +39,12 @@ export const deleteItem = async (id) => {
     console.error(e);
   }
 };
+
+export const updateItem = async (id, item) => {
+  try {
+    const { data } = await api.put(`/${id}`, item);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
+};

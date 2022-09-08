@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { updateItem } from "../services/api";
 
 export default function EditForm({ itemInfo }) {
   const [loading, setLoading] = useState(true);
@@ -10,6 +12,8 @@ export default function EditForm({ itemInfo }) {
     portion: "",
   });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (itemInfo) {
       setLoading(false);
@@ -18,7 +22,7 @@ export default function EditForm({ itemInfo }) {
         treatment: itemInfo.treatment,
         date: itemInfo.date,
         value: itemInfo.value,
-        portion: itemInfo.value,
+        portion: itemInfo.portion,
       });
     }
   }, [itemInfo]);
@@ -31,19 +35,38 @@ export default function EditForm({ itemInfo }) {
     });
   };
 
+  const validateItem = (item) => {
+    if (
+      !item.name ||
+      !item.treatment ||
+      !item.date ||
+      !item.value ||
+      !item.portion
+    ) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await updateItem(itemInfo.id, newInfo);
+    navigate("/");
+  };
+
   return (
     <div>
       {loading ? (
         <h1>carregando</h1>
       ) : (
-        <form className="form-container">
+        <form className="form-container" onSubmit={handleSubmit}>
           <label htmlFor="name">Paciente</label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            value={itemInfo.name}
+            value={newInfo.name}
             onChange={handleChange}
           />
           <label htmlFor="treatment">Tratamento</label>
@@ -52,7 +75,7 @@ export default function EditForm({ itemInfo }) {
             id="treatment"
             name="treatment"
             required
-            value={itemInfo.treatment}
+            value={newInfo.treatment}
             onChange={handleChange}
           />
           <label htmlFor="date">Data do atendimento</label>
@@ -61,7 +84,7 @@ export default function EditForm({ itemInfo }) {
             id="date"
             name="date"
             required
-            value={itemInfo.date}
+            value={newInfo.date}
             onChange={handleChange}
           />
           <label htmlFor="value">Valor (R$)</label>
@@ -70,7 +93,7 @@ export default function EditForm({ itemInfo }) {
             id="value"
             name="value"
             required
-            value={itemInfo.value}
+            value={newInfo.value}
             onChange={handleChange}
           />
           <label htmlFor="portion">Parcelas</label>
@@ -79,7 +102,7 @@ export default function EditForm({ itemInfo }) {
             id="portion"
             required
             onChange={handleChange}
-            value={itemInfo.portion}
+            value={newInfo.portion}
           >
             <option value="1">1x</option>
             <option value="2">2x</option>
@@ -95,7 +118,9 @@ export default function EditForm({ itemInfo }) {
             <option value="12">12x</option>
           </select>
 
-          <button type="submit">Atualizar</button>
+          <button type="submit" disabled={validateItem(newInfo)}>
+            Atualizar
+          </button>
         </form>
       )}
     </div>
