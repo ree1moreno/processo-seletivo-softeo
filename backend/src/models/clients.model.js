@@ -29,7 +29,16 @@ const createItem = async (name, treatment, date, value, portion) => {
   };
 };
 
+const listById = async (id) => {
+  const SQL = "SELECT * FROM clients WHERE id = ?;";
+  const [result] = await connection.execute(SQL, [id]);
+
+  if (!result) return null;
+  return result[0];
+};
+
 module.exports = {
   listAll,
   createItem,
+  listById,
 };

@@ -14,7 +14,16 @@ const createItem = async (req, res) => {
   res.status(201).json(itemCreated);
 };
 
+const listById = async (req, res) => {
+  const { id } = req.params;
+  const client = await clientsService.listById(id);
+
+  if (!client) return res.status(404).json({ message: "Item not found." });
+  return res.status(200).json(client);
+};
+
 module.exports = {
   listAll,
   createItem,
+  listById,
 };
