@@ -4,7 +4,7 @@ const listAll = async () => {
   const SQL = "SELECT * FROM clients;";
   const [result] = await connection.execute(SQL);
 
-  if (!result.length) return null;
+  if (!result.length) return [];
   return result;
 };
 

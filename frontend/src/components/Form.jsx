@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import MyContext from "../context/MyContext";
+import { createItem } from "../services/api";
 import "./styles/Form.css";
 
-export default function Form(props) {
+export default function Form() {
+  const { list, setList } = useContext(MyContext);
+
   const initialState = {
     name: "",
     treatment: "",
@@ -25,9 +29,14 @@ export default function Form(props) {
     });
   };
 
-  const handleSubmit = (event) => {
+  const addItem = (new_item) => {
+    setList([...list, new_item]);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    props.addItem(info);
+    await createItem(info);
+    addItem(info);
     setInfo(initialState);
   };
 

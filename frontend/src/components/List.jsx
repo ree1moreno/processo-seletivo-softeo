@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { BiEdit } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import MyContext from "../context/MyContext";
 import "./styles/List.css";
 
-export default function List(props) {
+export default function List() {
+  const { list } = useContext(MyContext);
+
   const formatDate = (date) => {
     const objDate = new Date(date).toLocaleDateString("pt-BR", {
       timeZone: "UTC",
@@ -12,7 +16,7 @@ export default function List(props) {
 
   const sumValues = () => {
     const values = [];
-    props.list.forEach((e) => values.push(e.value));
+    list.forEach((e) => values.push(e.value));
     const sum = values.reduce(
       (prev, current) => Number(prev) + Number(current),
       0,
@@ -24,7 +28,7 @@ export default function List(props) {
     <div className="list-container">
       <h2>Lista de tratamentos</h2>
 
-      {props.list == null ? (
+      {!list.length ? (
         <p className="list-message">Ainda não tem tratamentos registrados</p>
       ) : (
         <table className="table-list">
@@ -39,7 +43,7 @@ export default function List(props) {
             </tr>
           </thead>
           <tbody>
-            {props.list.map((item, i) => (
+            {list.map((item, i) => (
               <tr key={i}>
                 <td>{item.name}</td>
                 <td>{item.treatment}</td>
@@ -57,7 +61,7 @@ export default function List(props) {
         </table>
       )}
 
-      {props.list !== null && (
+      {list.length > 0 && (
         <div className="values-container">
           <p>
             Faturamento total: <span>R$ {sumValues()}</span>
