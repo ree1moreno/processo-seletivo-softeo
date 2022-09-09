@@ -13,3 +13,18 @@
   margin: 0.825rem auto;
   max-width: 95%;
 }
+
+.button-period {
+  background-color: #6ec6ca;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+}
+
+.button-period:hover {
+  background-color: #08979d;
+}

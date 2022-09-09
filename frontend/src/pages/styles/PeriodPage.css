@@ -1,0 +1,33 @@
+.period-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.back-link {
+  background-color: #ccabd8;
+  border: 1px solid #a682b3;
+  border-radius: 8px;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06rem;
+  margin-top: 1.5rem;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  background-color: #8474a1;
+  color: white;
+}
+
+@media (max-width: 375px) {
+  .back-link {
+    font-size: 0.925rem;
+    letter-spacing: normal;
+    padding: 0.2rem;
+  }
+}
