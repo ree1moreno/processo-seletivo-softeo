@@ -21,8 +21,8 @@
   text-align: center;
 }
 
-.edit-button {
-  line-height: 50%;
+.edit-button a {
+  color: #08979d;
 }
 
 .list-message {

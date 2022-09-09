@@ -50,3 +50,9 @@
     margin-top: 8px;
   }
 }
+
+@media (max-width: 375px) {
+  .form-container {
+    font-size: 0.8rem;
+  }
+}

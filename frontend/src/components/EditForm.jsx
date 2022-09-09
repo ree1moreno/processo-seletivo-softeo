@@ -104,18 +104,42 @@ export default function EditForm({ itemInfo }) {
             onChange={handleChange}
             value={newInfo.portion}
           >
-            <option value="1">1x</option>
-            <option value="2">2x</option>
-            <option value="3">3x</option>
-            <option value="4">4x</option>
-            <option value="5">5x</option>
-            <option value="6">6x</option>
-            <option value="7">7x</option>
-            <option value="8">8x</option>
-            <option value="9">9x</option>
-            <option value="10">10x</option>
-            <option value="11">11x</option>
-            <option value="12">12x</option>
+            <option value="1">{`1 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="2">{`2 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="3">{`3 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="4">{`4 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="5">{`5 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="6">{`6 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="7">{`7 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="8">{`8 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="9">{`9 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="10">{`10 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="11">{`11 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
+            <option value="12">{`12 x R$ ${(
+              newInfo.value / newInfo.portion
+            ).toFixed(2)}`}</option>
           </select>
 
           <button type="submit" disabled={validateItem(newInfo)}>
