@@ -7,6 +7,7 @@ import "./styles/Home.css";
 
 export default function Home() {
   const navigate = useNavigate();
+
   return (
     <div className="home-container">
       <Header />

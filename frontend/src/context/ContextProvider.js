@@ -11,12 +11,6 @@ export default function ContextProvider({ children }) {
     });
   }, []);
 
-  useEffect(() => {
-    getList().then((result) => {
-      setList(result);
-    });
-  }, [list]);
-
   const context = { list, setList };
 
   return <MyContext.Provider value={context}>{children}</MyContext.Provider>;

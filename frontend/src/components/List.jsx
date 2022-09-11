@@ -2,17 +2,11 @@ import { useContext } from "react";
 import { BiEdit } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import MyContext from "../context/MyContext";
+import { formatDate } from "../services/dates";
 import "./styles/List.css";
 
 export default function List() {
   const { list } = useContext(MyContext);
-
-  const formatDate = (date) => {
-    const objDate = new Date(date).toLocaleDateString("pt-BR", {
-      timeZone: "UTC",
-    });
-    return objDate;
-  };
 
   const sumValues = () => {
     const values = [];

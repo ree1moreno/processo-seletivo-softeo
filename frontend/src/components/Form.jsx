@@ -1,18 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MyContext from "../context/MyContext";
-import { createItem } from "../services/api";
+import { createItem, getList } from "../services/api";
+import { addItem } from "../services/helpers";
 import "./styles/Form.css";
 
 export default function Form() {
   const { list, setList } = useContext(MyContext);
 
-  const initialState = {
-    name: "",
-    treatment: "",
-    date: "",
-    value: "",
-    portion: 1,
-  };
   const [info, setInfo] = useState({
     name: "",
     treatment: "",
@@ -29,16 +23,16 @@ export default function Form() {
     });
   };
 
-  const addItem = (new_item) => {
-    setList([...list, new_item]);
+  const handleSubmit = async () => {
+    await createItem(info);
+    setList(addItem(list, info));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await createItem(info);
-    addItem(info);
-    setInfo(initialState);
-  };
+  useEffect(() => {
+    getList().then((result) => {
+      setList(result);
+    });
+  }, [setList]);
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
