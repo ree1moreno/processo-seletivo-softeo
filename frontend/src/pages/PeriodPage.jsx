@@ -7,7 +7,6 @@ import "./styles/PeriodPage.css";
 import {
   filterListByMonth,
   formatCurrentMonth,
-  formatDate,
   getCurrentMonth,
 } from "../services/dates";
 import PeriodList from "../components/PeriodList";
@@ -37,10 +36,19 @@ export default function PeriodPage() {
     let [year, month] = currentMonth.split("-");
     let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1);
     currentDate.setMonth(currentDate.getMonth() + 1);
-    console.log(currentDate.getFullYear());
     setCurrentMonth(
       `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`,
     );
+  };
+
+  const sumValues = () => {
+    const values = [];
+    filteredList.forEach((e) => values.push(e.value));
+    const sum = values.reduce(
+      (prev, current) => Number(prev) + Number(current),
+      0,
+    );
+    return sum;
   };
 
   return (
@@ -56,6 +64,11 @@ export default function PeriodPage() {
           <AiOutlineArrowRight className="next-button" onClick={getNextMonth} />
         </div>
         <PeriodList currentMonth={currentMonth} filteredList={filteredList} />
+        <div className="values-container">
+          <p>
+            Faturamento mensal: <span>R$ {sumValues()}</span>
+          </p>
+        </div>
         <Link to="/" className="back-link">
           Voltar
         </Link>
